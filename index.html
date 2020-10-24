@@ -2,7 +2,6 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-
 <title>Материалы по когнитивно-поведенческой терапии</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
@@ -17,6 +16,7 @@ a:active, a:hover { outline: 0px; }
 .for-image #write { padding-left: 8px; padding-right: 8px; }
 body.typora-export { padding-left: 30px; padding-right: 30px; }
 .typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
 @media screen and (max-width: 500px) {
   body.typora-export { padding-left: 0px; padding-right: 0px; }
   #write { padding-left: 20px; padding-right: 20px; }
@@ -25,14 +25,14 @@ body.typora-export { padding-left: 30px; padding-right: 30px; }
 }
 #write li > figure:last-child { margin-bottom: 0.5rem; }
 #write ol, #write ul { position: relative; }
-img { max-width: 100%; vertical-align: middle; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
 button, input, select, textarea { color: inherit; font: inherit; }
 input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
 *, ::after, ::before { box-sizing: border-box; }
 #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
 #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
 p { line-height: inherit; }
-h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
 p { orphans: 4; }
 h1 { font-size: 2rem; }
 h2 { font-size: 1.8rem; }
@@ -48,7 +48,7 @@ sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); 
 sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
 #write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
 figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
-figure > table { margin: 0px !important; }
+figure > table { margin: 0px; }
 tr { break-inside: avoid; break-after: auto; }
 thead { display: table-header-group; }
 table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
@@ -83,17 +83,19 @@ blockquote > :first-child, li > :first-child { margin-top: 0px; }
 .footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
 #write .footnote-line { white-space: pre-wrap; }
 @media print {
-  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
   #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
   .typora-export * { -webkit-print-color-adjust: exact; }
   html.blink-to-pdf { font-size: 13px; }
-  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write { break-after: avoid; }
   .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
 }
 .footnote-line { margin-top: 0.714em; font-size: 0.7em; }
 a img, img a { cursor: pointer; }
 pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
 p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
 p > .md-image:only-child { display: inline-block; width: 100%; }
 #write .MathJax_Display { margin: 0.8em 0px 0px; }
 .md-math-block { width: 100%; }
@@ -152,6 +154,9 @@ svg[id^="mermaidChart"] { line-height: 1em; }
 mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
 .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
 mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
 
 
 :root {
@@ -161,12 +166,16 @@ mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
 
 @include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
 
-html {
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
     font-size: 16px;
 }
 
 body {
-    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: rgb(51, 51, 51);
     line-height: 1.6;
 }
@@ -177,6 +186,19 @@ body {
   	padding: 30px;
     padding-bottom: 100px;
 }
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
 #write > ul:first-child,
 #write > ol:first-child{
     margin-top: 30px;
@@ -231,17 +253,33 @@ h6 code {
     font-size: inherit;
 }
 h1 {
-    padding-bottom: .3em;
     font-size: 2.25em;
     line-height: 1.2;
     border-bottom: 1px solid #eee;
 }
 h2 {
-   padding-bottom: .3em;
     font-size: 1.75em;
     line-height: 1.225;
     border-bottom: 1px solid #eee;
 }
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
 h3 {
     font-size: 1.5em;
     line-height: 1.43;
@@ -504,8 +542,8 @@ header, .context-menu, .megamenu-content, footer{
 
 </style>
 </head>
-<body class='typora-export os-windows' >
-<div  id='write'  class = 'is-node'><h1><a name="материалы-по-когнитивно-поведенческой-терапии" class="md-header-anchor"></a><span>Материалы по когнитивно-поведенческой терапии</span></h1><p><span>В данном списке перечислены все известные на настоящий момент материалы по когнитивно-поведенческой терапии на русском языке.</span></p><p><span>Общепринято must have, высококачественные материалы помечены 🔥.</span></p><p><span>Кликнув на название вы попадаете на страницу в интернет-магазине, где можно взглянуть на обложку, описание и отзывы. В редких случаях, когда таковой не существует в российских магазинах (редкое издание, частный перевод), будет ссылка на оригинал книги на amazon или другой источник. Кликнув на 💾 вы можете скачать материал. Если иконка отсутствует, значит, материал не найти в электронном виде бесплатно.</span></p><p><span>Следует иметь в виду, что не стоит оценивать книги по их названию. Здесь имеют место быть издержки перевода на русский, когда оригинальное содержательное и даже остроумное название может быть искаженно до уровня соответствующего низкопробной литературе. Также, качество материалов оценивается в первую очередь по признанию оригинального материала на западе, но нельзя ручаться, что перевод не снизил качество на порядок.</span></p><p><span>По любым предложениям </span><a href='mailto:anonche@protonmail.com'><span>свяжитесь со мной</span></a><span>.</span></p><p><a href='https://drive.google.com/drive/folders/1Ydbw6LjiBRC68eCivEcGVfohKnCDPUdX?usp=sharing'><span>Скачать все книги</span></a></p><p><a href='https://vk.com/@abnormal_sanity-o-sortah-kpt-kognitivno-povedencheskoi-terapii'><span>О различных направлениях КПТ</span></a></p><h3><a name="навигация" class="md-header-anchor"></a><span>Навигация</span></h3><blockquote><p><a href='#основы-кпт-для-начинающих'><span>Основы КПТ для начинающих</span></a></p></blockquote><blockquote><p><a href='#самопомощь'><span>Самопомощь</span></a>
+<body class='typora-export os-windows'>
+<div id='write'  class=''><h1><a name="материалы-по-когнитивно-поведенческой-терапии" class="md-header-anchor"></a><span>Материалы по когнитивно-поведенческой терапии</span></h1><p><em><span>Ресурс является частью </span><a href='https://t.me/adhd_recharge'><span>Сообщества взрослых с СДВГ</span></a></em></p><p>&nbsp;</p><p><span>В данном списке перечислены все известные на настоящий момент материалы по когнитивно-поведенческой терапии на русском языке.</span></p><p><span>Общепринято must have, высококачественные материалы помечены 🔥.</span></p><p><span>Кликнув на название вы попадаете на страницу в интернет-магазине, где можно взглянуть на обложку, описание и отзывы. В редких случаях, когда таковой не существует в российских магазинах (редкое издание, частный перевод), будет ссылка на оригинал книги на amazon или другой источник. Кликнув на 💾 вы можете скачать материал. Если иконка отсутствует, значит, материал не найти в электронном виде бесплатно.</span></p><p><span>Следует иметь в виду, что не стоит оценивать книги по их названию. Здесь имеют место быть издержки перевода на русский, когда оригинальное содержательное и даже остроумное название может быть искаженно до уровня соответствующего низкопробной литературе. Также, качество материалов оценивается в первую очередь по признанию оригинального материала на западе, но нельзя ручаться, что перевод не снизил качество на порядок.</span></p><p><span>По любым предложениям </span><a href='mailto:anonche@protonmail.com'><span>свяжитесь со мной</span></a><span>.</span></p><p><a href='https://drive.google.com/drive/folders/1Ydbw6LjiBRC68eCivEcGVfohKnCDPUdX?usp=sharing'><span>Скачать все книги</span></a></p><p><a href='https://vk.com/@abnormal_sanity-o-sortah-kpt-kognitivno-povedencheskoi-terapii'><span>О различных направлениях КПТ</span></a></p><h3><a name="навигация" class="md-header-anchor"></a><span>Навигация</span></h3><blockquote><p><a href='#основы-кпт-для-начинающих'><span>Основы КПТ для начинающих</span></a></p></blockquote><blockquote><p><a href='#самопомощь'><span>Самопомощь</span></a>
 <a href='#стресс'><span>Стресс</span></a>
 <a href='#депрессия'><span>Депрессия</span></a>
 <a href='#тревога'><span>Тревога</span></a>
